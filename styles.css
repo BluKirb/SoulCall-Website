@@ -1,0 +1,208 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFE5E0;
+    height: 100vh;
+}
+.rochester-regular {
+  font-family: "Rochester", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.cookie-regular {
+  font-family: "Cookie", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    background-color: #BA4F41;
+    color: white;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+    font-family: "Rochester", cursive;
+    font-size: 24px;
+}
+
+.greeting {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    border-bottom: 1px solid #a3443a;
+}
+
+.greeting h2 {
+    font-size: 2 rem;
+    font-weight: 300;
+
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    list-style: none;
+    padding: 2rem 0;
+    gap: 0.5rem;
+}
+
+.nav-menu li {
+    display: flex;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    transition: background-color 0.3s, border-left 0.3s;
+    border-left: 3px solid transparent;
+    flex: 1;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: #FF705C;
+    border-left-color: #3498db;
+}
+
+.nav-link.signout {
+    margin-top: auto;
+    color: #ffd6d1;
+}
+
+.nav-link.signout:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.page-header {
+    font-size: 5rem;
+    color: #400A0A;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-family: "Cookie", cursive;
+}
+
+.profile-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    padding: 2rem;
+}
+
+.profile-picture img {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.profile-info {
+    flex: 1;
+    padding: 1rem;
+    font-family: "Cookie", cursive;
+    color: #400A0A;
+}
+
+.profile-name {
+    font-size: 3rem;
+    color: #400A0A;
+    margin-bottom: 10px;
+    font-family: "Cookie", cursive;
+}
+
+.about-section {
+    margin-top: 20px;
+    
+}
+
+.about-list {
+    list-style: none;
+    margin-top: 1rem;
+    font-family: "Cookie", cursive;
+    font-size: 22px ;
+}
+
+.about-list li {
+    background-color: #f8f9fa;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.about-list strong {
+    color: #870909;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.action-buttons button {
+    width: 100px;             
+    height: 100px;
+    font-size: 50px;           
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: transform 0.2s ease;
+}
+
+.btn-reject {
+    background-color: #d93636;
+    color: white;
+}
+
+.btn-like {
+    background-color: #2e7d32;
+    color: white;
+}
+
+.action-buttons button:hover {
+    transform: scale(1.1);
+}
+
+.action-buttons button:focus {
+    outline: 4px solid #000;
+    outline-offset: 4px;
+}
