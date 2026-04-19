@@ -8,21 +8,21 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #FFE5E0;
-    height: 100vh;
+    overflow-y: auto;
 }
+
 .rochester-regular {
   font-family: "Rochester", cursive;
   font-weight: 400;
-  font-style: normal;
 }
+
 .cookie-regular {
   font-family: "Cookie", cursive;
   font-weight: 400;
-  font-style: normal;
 }
+
 .container {
-    display: flex;
-    height: 100vh;
+    display: block;
 }
 
 .sidebar {
@@ -32,22 +32,13 @@ body {
     background-color: #BA4F41;
     color: white;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    flex-shrink: 0;
     font-family: "Rochester", cursive;
     font-size: 24px;
-}
 
-.greeting {
-    display: flex;
-    align-items: center;
-    padding: 2rem;
-    border-bottom: 1px solid #a3443a;
-}
-
-.greeting h2 {
-    font-size: 2 rem;
-    font-weight: 300;
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
 }
 
 .nav-menu {
@@ -59,18 +50,15 @@ body {
     gap: 0.5rem;
 }
 
-.nav-menu li {
-    display: flex;
-}
-
 .nav-link {
     display: flex;
     align-items: center;
     color: white;
     text-decoration: none;
-    padding: 1rem 2rem;
+    padding: 1.2rem 2rem;
+    font-size: 1.2rem;
     transition: background-color 0.3s, border-left 0.3s;
-    border-left: 3px solid transparent;
+    border-left: 4px solid transparent;
     flex: 1;
 }
 
@@ -90,12 +78,27 @@ body {
     color: white;
 }
 
+.greeting {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    border-bottom: 1px solid #a3443a;
+}
+
+.greeting h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    width: 100%;
+}
+
 .main-content {
     display: flex;
     flex-direction: column;
     flex: 1;
     padding: 2rem;
-    overflow-y: auto;
+    margin-left: 250px;
 }
 
 .page-header {
@@ -136,21 +139,17 @@ body {
 
 .profile-name {
     font-size: 3rem;
-    color: #400A0A;
     margin-bottom: 10px;
-    font-family: "Cookie", cursive;
 }
 
 .about-section {
     margin-top: 20px;
-    
 }
 
 .about-list {
     list-style: none;
     margin-top: 1rem;
-    font-family: "Cookie", cursive;
-    font-size: 22px ;
+    font-size: 22px;
 }
 
 .about-list li {
@@ -169,22 +168,20 @@ body {
 .action-buttons {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-top: 30px;
+    gap: 50px;
+    margin-top: 40px;
 }
 
 .action-buttons button {
-    width: 100px;             
-    height: 100px;
-    font-size: 50px;           
+    width: 130px;
+    height: 130px;
+    font-size: 60px;
     border: none;
     border-radius: 50%;
     cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     transition: transform 0.2s ease;
 }
 
@@ -203,6 +200,157 @@ body {
 }
 
 .action-buttons button:focus {
-    outline: 4px solid #000;
-    outline-offset: 4px;
+    outline: 5px solid #000;
+    outline-offset: 5px;
+}
+
+#settings-page {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.settings-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 16px;
+    border: 2px solid #e0e0e0;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.settings-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    color: #400A0A;
+}
+
+.setting-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.setting-item label {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.setting-item input,
+.setting-item select {
+    font-size: 1.3rem;
+    padding: 14px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    width: 100%;
+}
+
+.setting-item input[type="checkbox"] {
+    transform: scale(1.6);
+    margin-top: 10px;
+}
+
+.setting-item input[type="checkbox"]:focus {
+    outline: none;
+}
+
+.setting-item input[type="checkbox"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 112, 92, 0.6);
+    border-radius: 6px;
+}
+
+.setting-item button {
+    margin-top: 10px;
+    padding: 12px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #FF705C;
+    color: white;
+}
+
+.setting-item button:hover {
+    background: #e85c49;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modal-content button:first-of-type {
+    background: #2e7d32;
+    color: white;
+}
+
+.modal-content button:last-of-type {
+    background: #d93636;
+    color: white;
+}
+
+.setting-item input:focus,
+.setting-item select:focus {
+    outline: 3px solid #FF705C;
+    border-color: #FF705C;
+}
+
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1d0cb;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #BA4F41;
+    border-radius: 10px;
+    border: 3px solid #f1d0cb;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #FF705C;
+}
+
+* {
+    scrollbar-width: thick;
+    scrollbar-color: #BA4F41 #f1d0cb;
+}
+
+.hidden {
+    display: none;
 }
