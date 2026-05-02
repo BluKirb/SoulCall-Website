@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dating App Dashboard</title>
+    <title>SoulCall</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .age-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            max-width: 260px;
+        }
+
+        .age-wrapper input[type="range"] {
+            width: 140px;
+        }
+
+        .age-display {
+            font-size: 18px;
+            font-weight: 600;
+            min-width: 110px;
+            text-align: right;
+            color: #333;
+        }
+    </style>
 </head>
+
 <body>
 <div class="container">
 
@@ -19,167 +41,252 @@
         <div class="greeting">
             <h2>Hello, Mr. Murrdock!</h2>
         </div>
+
         <ul class="nav-menu">
             <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
             <li><a href="#" class="nav-link" data-page="matches">Matches</a></li>
+            <li><a href="#" class="nav-link" data-page="chat">Chat</a></li>
             <li><a href="#" class="nav-link" data-page="settings">Settings</a></li>
             <li><a href="#" class="nav-link" data-page="profile">Profile</a></li>
             <li><a href="#" class="nav-link signout">Sign out</a></li>
         </ul>
     </nav>
 
-    <main class="main-content page" id="home-page">
-        <h1 class="page-header">Connect with someone new!</h1>
+    <main class="main-content">
 
-        <div class="profile-container">
-            <div class="profile-picture">
-                <img src="images/emily.jpg" alt="Profile Picture" />
+        <div class="page" id="home-page">
+            <h1 class="page-header">Connect with someone new!</h1>
+
+            <div class="profile-container">
+                <div class="profile-picture">
+                    <img src="images/emily.jpg" alt="Profile Picture">
+                </div>
+
+                <div class="profile-info">
+                    <h1 class="profile-name">Emily Florence</h1>
+
+                    <div class="about-section">
+                        <h2>About Me</h2>
+                        <ul class="about-list">
+                            <li><strong>Height:</strong> 5'6"</li>
+                            <li><strong>Age:</strong> 31</li>
+                            <li><strong>Hobbies:</strong> Knitting, Traveling, Playing guitar</li>
+                            <li><strong>Interesting Facts:</strong> Been to 43 US states</li>
+                            <li><strong>Goals:</strong> Try food from around the world</li>
+                            <li><strong>Favorite Food:</strong> Tikka Masala</li>
+                            <li><strong>Travel Spot:</strong> Albuquerque, NM</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <div class="profile-info">
-                <h1 class="profile-name">Emily Florence</h1>
-                <div class="about-section">
-                    <h2>About Me</h2>
-                    <ul class="about-list">
-                        <li><strong>Height:</strong> 5'6"</li>
-                        <li><strong>Age:</strong> 31</li>
-                        <li><strong>Hobbies:</strong> Knitting, Traveling, Playing guitar</li>
-                        <li><strong>Interesting Facts:</strong> Been to 43 US states</li>
-                        <li><strong>Goals:</strong> Try food from around the world</li>
-                        <li><strong>Favorite Food:</strong> Tikka Masala</li>
-                        <li><strong>Travel Spot:</strong> Albuquerque, NM</li>
-                    </ul>
+            <div class="action-buttons">
+                <button class="btn-reject">✕</button>
+                <button class="btn-like" onclick="playConfirmationTone()">✓</button>
+            </div>
+        </div>
+
+        <div class="page hidden" id="matches-page">
+            <h1 class="page-header">Your Matches</h1>
+
+            <div class="matches-empty">
+                <div class="matches-picture">
+                    <img src="images/eliza.jpg" alt="Eliza's Picture">
+                </div>
+
+                <h2 class="matches-title">Explore your matches!</h2>
+
+                <button class="matches-btn" onclick="goToChat()">Start Exploring</button>
+            </div>
+        </div>
+
+        <div class="page hidden" id="chat-page">
+            <h1 class="page-header">Call History - Eliza</h1>
+
+            <div class="chat-container">
+                <div class="chat-box">
+
+                    <p class="chat-message system">You matched with Eliza 💬</p>
+                    <p class="chat-message system">--- Previous Call Transcript ---</p>
+
+                    <p class="chat-message incoming">Eliza: Hey, can you hear me okay?</p>
+                    <p class="chat-message outgoing">You: Yeah, I can hear you clearly.</p>
+
+                    <p class="chat-message incoming">Eliza: That's great. How was your day?</p>
+                    <p class="chat-message outgoing">You: Pretty good actually, just been relaxing.</p>
+
+                    <p class="chat-message incoming">Eliza: I've been thinking about that restaurant you mentioned.</p>
+                    <p class="chat-message outgoing">You: Oh yeah? We should definitely go sometime.</p>
+
+                    <p class="chat-message incoming">Eliza: I'd like that.</p>
+
+                    <p class="chat-message system">--- Call Ended (12:43 PM) ---</p>
+
+                </div>
+
+                <div class="call-buttons">
+                    <button class="call-btn call-eliza">📞 Call Eliza</button>
                 </div>
             </div>
         </div>
 
-        <div class="action-buttons">
-            <button class="btn-reject">✕</button>
-            <button class="btn-like" onclick="playConfirmationTone()">✓</button>
-        </div>
-    </main>
+        <div class="page hidden" id="settings-page">
+            <h1 class="page-header">Settings</h1>
 
-    <main class="main-content page hidden" id="matches-page">
-        <h1 class="page-header">Your Matches</h1>
-        <p>You don't have any matches yet. Start swiping!</p>
-    </main>
-
-    <main class="main-content page hidden" id="settings-page">
-        <h1 class="page-header">Settings</h1>
-
-        <div id="unsavedIndicator" style="display:none; text-align:center; color:#e85c49; font-weight:bold; margin-bottom:15px;">
-            ● You have unsaved changes
-        </div>
-
-        <div class="settings-container">
-
-            <div class="settings-section">
-                <h2>Recording Options</h2>
-
-                <div class="setting-item">
-                    <label>Enable Audio Recording:</label>
-                    <input type="checkbox">
-                </div>
-
-                <div class="setting-item">
-                    <label>Enable Video Recording:</label>
-                    <input type="checkbox">
-                </div>
-
-                <div class="setting-item">
-                    <label>Recording Quality:</label>
-                    <select>
-                        <option>Low</option>
-                        <option selected>Medium</option>
-                        <option>High</option>
-                    </select>
-                </div>
-
-                <div class="setting-item">
-                    <label>Auto-save Recordings:</label>
-                    <input type="checkbox" checked>
-                </div>
+            <div id="unsavedIndicator" style="display:none; text-align:center; color:#e85c49; font-weight:bold; margin-bottom:15px;">
+                ● You have unsaved changes
             </div>
 
-            <div class="settings-section">
-                <h2>Audio Controls</h2>
+            <div class="settings-container">
 
-                <div class="setting-item">
-                    <label>Volume Control:</label>
-                    <input type="range" id="volumeControl" min="0" max="100">
+                <div class="settings-section">
+                    <h2>Recording Options</h2>
+
+                    <div class="setting-item">
+                        <label>Enable Audio Recording:</label>
+                        <input type="checkbox">
+                    </div>
+
+                    <div class="setting-item">
+                        <label>Enable Video Recording:</label>
+                        <input type="checkbox">
+                    </div>
+
+                    <div class="setting-item">
+                        <label>Recording Quality:</label>
+                        <select>
+                            <option>Low</option>
+                            <option selected>Medium</option>
+                            <option>High</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-item">
+                        <label>Auto-save Recordings:</label>
+                        <input type="checkbox" checked>
+                    </div>
                 </div>
 
-                <div class="setting-item">
-                    <label>Notifications:</label>
-                    <input type="checkbox" checked>
-                </div>
+                <div class="settings-section">
+                    <h2>Audio Controls</h2>
 
-                <div class="setting-item">
-                    <label>Confirmation Tone:</label>
-                    <select id="confirmationTone">
-                        <option value="tone1">Beep 1</option>
-                        <option value="tone2">Beep 2</option>
-                        <option value="tone3">Water Drop</option>
-                    </select>
-                    <button onclick="previewTone()">Preview</button>
-                </div>
+                    <div class="setting-item">
+                        <label>Volume Control:</label>
+                        <input type="range" id="volumeControl" min="0" max="100">
+                    </div>
 
-                <div class="setting-item">
-                    <label>Button Click Sound:</label>
-                    <input type="checkbox" id="clickSoundToggle">
-                </div>
+                    <div class="setting-item">
+                        <label>Notifications:</label>
+                        <input type="checkbox" checked>
+                    </div>
 
-                <div class="setting-item">
-                    <button onclick="openSavePopup()">Save Settings</button>
-                </div>
+                    <div class="setting-item">
+                        <label>Confirmation Tone:</label>
+                        <select id="confirmationTone">
+                            <option value="tone1">Beep 1</option>
+                            <option value="tone2">Beep 2</option>
+                            <option value="tone3">Water Drop</option>
+                        </select>
+                        <button onclick="previewTone()">Preview</button>
+                    </div>
 
-            </div>
-        </div>
-    </main>
+                    <div class="setting-item">
+                        <label>Button Click Sound:</label>
+                        <input type="checkbox" id="clickSoundToggle">
+                    </div>
 
-    <!-- PROFILE -->
-    <main class="main-content page hidden" id="profile-page">
-        <h1 class="page-header">Your Profile</h1>
+                    <div class="setting-item">
+                        <button onclick="openSavePopup()">Save Settings</button>
+                    </div>
 
-        <div class="settings-container">
-            <div class="settings-section">
-                <h2>Account Settings</h2>
-
-                <div class="setting-item">
-                    <label>Email:</label>
-                    <input type="email" value="mr.murrdock@email.com">
-                </div>
-
-                <div class="setting-item">
-                    <label>Phone:</label>
-                    <input type="tel" value="+1 (555) 123-4567">
-                </div>
-            </div>
-
-            <div class="settings-section">
-                <h2>Preferences</h2>
-
-                <div class="setting-item">
-                    <label>Age Range:</label>
-                    <input type="text" value="25 - 35">
-                </div>
-
-                <div class="setting-item">
-                    <label>Distance:</label>
-                    <input type="text" value="Within 50 miles">
                 </div>
             </div>
         </div>
+
+        <div class="page hidden" id="profile-page">
+            <h1 class="page-header">Your Profile</h1>
+
+            <div class="settings-container">
+
+                <div class="settings-section">
+                    <h2>Account Settings</h2>
+
+                    <div class="setting-item">
+                        <label>Email:</label>
+                        <input type="email" value="mr.murrdock@email.com">
+                    </div>
+
+                    <div class="setting-item">
+                        <label>Phone:</label>
+                        <input type="tel" value="+1 (555) 123-4567">
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h2>Preferences</h2>
+
+                    <div class="setting-item">
+                        <label>Dating Preference:</label>
+                        <select>
+                            <option>Women</option>
+                            <option>Men</option>
+                            <option>Everyone</option>
+                            <option>Non-binary</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-item">
+                        <label>Your Age:</label>
+                        <div class="age-wrapper">
+                            <input type="range" min="18" max="60" value="31" id="userAge">
+                            <div class="age-display" id="userAgeDisplay">31 years old</div>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <label>Distance:</label>
+                        <select id="distanceSelect">
+                            <option value="0-15">0–15 miles</option>
+                            <option value="15-30">15–30 miles</option>
+                            <option value="30-45">30–45 miles</option>
+                            <option value="45-60" selected>45–60 miles</option>
+                            <option value="60+">60+ miles</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-item">
+                        <label>Age Preference:</label>
+                        <select id="agePreferenceSelect">
+                            <option>18–25</option>
+                            <option>26–30</option>
+                            <option selected>31–40</option>
+                            <option>41–50</option>
+                            <option>50+</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-item">
+                        <label>Occupation:</label>
+                        <input type="text" id="occupationInput" value="Lawyer">
+                    </div>
+
+                    <div class="setting-item">
+                        <label>Preferred Name:</label>
+                        <input type="text" id="preferredNameInput" value="Matt">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </main>
 
 </div>
 
-<!-- AUDIO -->
 <audio id="tone1" src="sounds/beep.mp3"></audio>
 <audio id="tone2" src="sounds/beep2.mp3"></audio>
 <audio id="tone3" src="sounds/waterdrop.mp3"></audio>
 
-<!-- SAVE POPUP -->
 <div id="saveModal" class="modal hidden">
     <div class="modal-content">
         <h3>Save Changes?</h3>
@@ -190,6 +297,7 @@
 </div>
 
 <script>
+
 const navLinks = document.querySelectorAll(".nav-link");
 const pages = document.querySelectorAll(".page");
 
@@ -209,28 +317,58 @@ navLinks.forEach(link => {
     });
 });
 
+function goToChat() {
+    pages.forEach(p => p.classList.add("hidden"));
+    document.getElementById("chat-page").classList.remove("hidden");
+}
+
+// AGE SLIDER
+const userAge = document.getElementById("userAge");
+const userAgeDisplay = document.getElementById("userAgeDisplay");
+
+userAge?.addEventListener("input", () => {
+    userAgeDisplay.textContent = `${userAge.value} years old`;
+});
+
 let savedSettings = {
     volume: 75,
     tone: "tone1",
-    clickSound: true
+    clickSound: true,
+    distance: "45-60",
+    agePreference: "31–40",
+    occupation: "Lawyer",
+    preferredName: "Matt"
 };
 
 let draftSettings = { ...savedSettings };
-
 let soundEnabled = true;
 
 document.addEventListener("DOMContentLoaded", () => {
     const vol = document.getElementById("volumeControl");
     const tone = document.getElementById("confirmationTone");
     const clickToggle = document.getElementById("clickSoundToggle");
+    const distanceSelect = document.getElementById("distanceSelect");
+    const agePref = document.getElementById("agePreferenceSelect");
+    const occupation = document.getElementById("occupationInput");
+    const preferredName = document.getElementById("preferredNameInput");
 
     vol.value = savedSettings.volume;
     tone.value = savedSettings.tone;
     clickToggle.checked = savedSettings.clickSound;
+    distanceSelect.value = savedSettings.distance;
+    agePref.value = savedSettings.agePreference;
+    occupation.value = savedSettings.occupation;
+    preferredName.value = savedSettings.preferredName;
+
     soundEnabled = savedSettings.clickSound;
 
     vol.addEventListener("input", updateDraft);
     tone.addEventListener("change", updateDraft);
+    distanceSelect.addEventListener("change", updateDraft);
+    agePref.addEventListener("change", updateDraft);
+    occupation.addEventListener("input", updateDraft);
+    preferredName.addEventListener("input", updateDraft);
+
     clickToggle.addEventListener("change", e => {
         soundEnabled = e.target.checked;
         draftSettings.clickSound = e.target.checked;
@@ -241,14 +379,16 @@ document.addEventListener("DOMContentLoaded", () => {
 function updateDraft() {
     draftSettings.volume = Number(document.getElementById("volumeControl").value);
     draftSettings.tone = document.getElementById("confirmationTone").value;
+    draftSettings.distance = document.getElementById("distanceSelect").value;
+    draftSettings.agePreference = document.getElementById("agePreferenceSelect").value;
+    draftSettings.occupation = document.getElementById("occupationInput").value;
+    draftSettings.preferredName = document.getElementById("preferredNameInput").value;
     checkUnsaved();
 }
 
 function checkUnsaved() {
     const changed =
-        draftSettings.volume !== savedSettings.volume ||
-        draftSettings.tone !== savedSettings.tone ||
-        draftSettings.clickSound !== savedSettings.clickSound;
+        JSON.stringify(draftSettings) !== JSON.stringify(savedSettings);
 
     document.getElementById("unsavedIndicator").style.display =
         changed ? "block" : "none";
@@ -269,14 +409,13 @@ function playTone(id, volume) {
 
 function playConfirmationTone() {
     if (!soundEnabled) return;
-    playTone(savedSettings.tone, savedSettings.volume);
+    playTone(draftSettings.tone, draftSettings.volume);
 }
 
 function previewTone() {
     if (!soundEnabled) return;
     playTone(draftSettings.tone, draftSettings.volume);
 }
-
 
 function openSavePopup() {
     document.getElementById("saveModal").classList.remove("hidden");
@@ -288,6 +427,10 @@ function cancelSettings() {
     document.getElementById("volumeControl").value = savedSettings.volume;
     document.getElementById("confirmationTone").value = savedSettings.tone;
     document.getElementById("clickSoundToggle").checked = savedSettings.clickSound;
+    document.getElementById("distanceSelect").value = savedSettings.distance;
+    document.getElementById("agePreferenceSelect").value = savedSettings.agePreference;
+    document.getElementById("occupationInput").value = savedSettings.occupation;
+    document.getElementById("preferredNameInput").value = savedSettings.preferredName;
 
     soundEnabled = savedSettings.clickSound;
 
@@ -301,6 +444,18 @@ function saveSettings() {
     checkUnsaved();
     alert("Settings saved!");
 }
+
+document.addEventListener("click", (e) => {
+    const clickable = e.target.closest("button, select, input, .setting-item");
+
+    if (!clickable) return;
+
+    if (clickable.closest(".sidebar")) return;
+
+    if (!soundEnabled) return;
+
+    playConfirmationTone();
+});
 </script>
 
 </body>
