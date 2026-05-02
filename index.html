@@ -37,7 +37,16 @@
 <body>
 <div class="container">
 
-    <nav class="sidebar">
+    <div class="topbar">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+        <span class="topbar-title">SoulCall</span>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <nav class="sidebar" id="sidebar">
         <div class="greeting">
             <h2>Hello, Mr. Murrdock!</h2>
         </div>
@@ -301,6 +310,30 @@
 const navLinks = document.querySelectorAll(".nav-link");
 const pages = document.querySelectorAll(".page");
 
+// HAMBURGER MENU
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const sidebar = document.getElementById("sidebar");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+
+function openSidebar() {
+    sidebar.classList.add("open");
+    sidebarOverlay.classList.add("active");
+    document.body.classList.add("sidebar-open");
+}
+
+function closeSidebar() {
+    sidebar.classList.remove("open");
+    sidebarOverlay.classList.remove("active");
+    document.body.classList.remove("sidebar-open");
+}
+
+hamburgerBtn.addEventListener("click", () => {
+    sidebar.classList.contains("open") ? closeSidebar() : openSidebar();
+});
+
+sidebarOverlay.addEventListener("click", closeSidebar);
+
+// NAVIGATION
 navLinks.forEach(link => {
     link.addEventListener("click", function(e) {
         e.preventDefault();
@@ -314,6 +347,8 @@ navLinks.forEach(link => {
         const pageName = this.getAttribute("data-page");
         const target = document.getElementById(pageName + "-page");
         if (target) target.classList.remove("hidden");
+
+        closeSidebar();
     });
 });
 
