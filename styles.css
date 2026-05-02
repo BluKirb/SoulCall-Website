@@ -430,6 +430,99 @@ body {
     }
 }
 
+/* =========================
+   MOBILE IMPROVEMENTS (HOME FIX)
+   ========================= */
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .greeting {
+        display: none;
+    }
+
+    .nav-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+        padding: 10px;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        padding: 10px 14px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.2rem;
+    }
+
+    .profile-picture img {
+        width: 260px;
+        height: 320px;
+    }
+
+    .profile-name {
+        font-size: 2.2rem;
+    }
+
+    .about-list {
+        font-size: 18px;
+    }
+
+    .action-buttons {
+        gap: 25px;
+        margin-top: 25px;
+    }
+
+    .action-buttons button {
+        width: 90px;
+        height: 90px;
+        font-size: 40px;
+    }
+
+    .matches-picture img {
+        width: 260px;
+        height: auto;
+    }
+
+    .page-header {
+        font-size: 3rem;
+    }
+
+    .settings-section {
+        padding: 20px;
+    }
+
+    .setting-item label {
+        font-size: 1.1rem;
+    }
+
+    .setting-item input,
+    .setting-item select {
+        font-size: 1rem;
+    }
+}
+
 .hidden {
     display: none;
 }
