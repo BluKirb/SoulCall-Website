@@ -459,9 +459,6 @@ body {
     max-width: 90vw;
 }
 
-/* ========================= */
-/* SCROLLBAR */
-/* ========================= */
 ::-webkit-scrollbar {
     width: 16px;
 }
